@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartshuttle.business.vehicle.mapper.VehicleMapper">
+
+    <!-- 分页查询车辆列表 -->
+    <select id="selectVehiclePage" resultType="com.smartshuttle.business.vehicle.vo.VehicleVO">
+        SELECT 
+            v.id,
+            v.plate_number as plateNumber,
+            v.brand,
+            v.seats,
+            v.status,
+            v.fuel_consumption as fuelConsumption,
+            v.route_id as routeId,
+            r.name as routeName,
+            v.driver_name as driverName,
+            v.driver_phone as driverPhone,
+            v.purchase_date as purchaseDate,
+            v.last_maintenance as lastMaintenance,
+            v.next_maintenance as nextMaintenance,
+            v.mileage,
+            v.remark,
+            v.create_time as createTime
+        FROM biz_vehicle v
+        LEFT JOIN biz_route r ON v.route_id = r.id
+        WHERE v.deleted = 0
+        <if test="query.plateNumber != null and query.plateNumber != ''">
+            AND v.plate_number LIKE CONCAT('%', #{query.plateNumber}, '%')
+        </if>
+        <if test="query.status != null">
+            AND v.status = #{query.status}
+        </if>
+        <if test="query.routeId != null">
+            AND v.route_id = #{query.routeId}
+        </if>
+        <if test="query.brand != null and query.brand != ''">
+            AND v.brand LIKE CONCAT('%', #{query.brand}, '%')
+        </if>
+        ORDER BY v.create_time DESC
+    </select>
+
+</mapper>

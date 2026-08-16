@@ -1,0 +1,10 @@
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\config\MyMetaObjectHandler.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\entity\BaseEntity.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\utils\JwtUtils.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\ai\LlmClient.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\result\PageResult.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\constant\ErrorCode.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\exception\BusinessException.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\enums\VehicleStatus.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\exception\GlobalExceptionHandler.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-common\src\main\java\com\smartshuttle\common\result\Result.java

@@ -1,0 +1,18 @@
+# docker-compose.yml
+services:
+  postgres-vector:
+    image: postgres:16-alpine
+    container_name: postgres-vector
+    environment:
+      POSTGRES_DB: vector_db
+      POSTGRES_USER: vector_admin
+      POSTGRES_PASSWORD: Lindan64yyds@
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-vector-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+
+volumes:
+  postgres-vector-data:

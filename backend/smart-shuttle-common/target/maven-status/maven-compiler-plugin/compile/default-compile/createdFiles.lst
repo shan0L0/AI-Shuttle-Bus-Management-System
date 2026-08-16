@@ -1,0 +1,12 @@
+com\smartshuttle\common\constant\ErrorCode.class
+com\smartshuttle\common\exception\GlobalExceptionHandler.class
+com\smartshuttle\common\result\PageResult.class
+com\smartshuttle\common\ai\LlmClient$ChatMessage.class
+com\smartshuttle\common\ai\LlmClient.class
+com\smartshuttle\common\entity\BaseEntity.class
+com\smartshuttle\common\enums\VehicleStatus.class
+com\smartshuttle\common\utils\JwtUtils.class
+com\smartshuttle\common\config\UserContextHolder.class
+com\smartshuttle\common\result\Result.class
+com\smartshuttle\common\config\MyMetaObjectHandler.class
+com\smartshuttle\common\exception\BusinessException.class

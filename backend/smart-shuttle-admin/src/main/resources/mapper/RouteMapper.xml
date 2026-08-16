@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smartshuttle.business.route.mapper.RouteMapper">
+
+    <!-- 分页查询线路（含车辆信息） -->
+    <select id="selectRoutePage" resultType="com.smartshuttle.business.route.vo.RouteVO">
+        SELECT 
+            r.id,
+            r.name,
+            r.vehicle_id as vehicleId,
+            v.plate_number as vehiclePlate,
+            v.brand as vehicleBrand,
+            v.driver_name as driverName,
+            r.station_count as stationCount,
+            r.total_passenger as totalPassenger,
+            r.capacity,
+            r.occupancy_rate as occupancyRate,
+            r.total_distance as totalDistance,
+            r.estimated_time as estimatedTime,
+            r.departure_time as departureTime,
+            r.status,
+            r.color,
+            r.create_time as createTime
+        FROM biz_route r
+        LEFT JOIN biz_vehicle v ON r.vehicle_id = v.id
+        WHERE r.deleted = 0
+        <if test="name != null and name != ''">
+            AND r.name LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="status != null">
+            AND r.status = #{status}
+        </if>
+        ORDER BY r.name ASC
+    </select>
+
+    <!-- 查询线路详情（含车辆信息） -->
+    <select id="selectRouteById" resultType="com.smartshuttle.business.route.vo.RouteVO">
+        SELECT 
+            r.id,
+            r.name,
+            r.vehicle_id as vehicleId,
+            v.plate_number as vehiclePlate,
+            v.brand as vehicleBrand,
+            v.driver_name as driverName,
+            r.station_count as stationCount,
+            r.total_passenger as totalPassenger,
+            r.capacity,
+            r.occupancy_rate as occupancyRate,
+            r.total_distance as totalDistance,
+            r.estimated_time as estimatedTime,
+            r.departure_time as departureTime,
+            r.status,
+            r.color,
+            r.create_time as createTime
+        FROM biz_route r
+        LEFT JOIN biz_vehicle v ON r.vehicle_id = v.id
+        WHERE r.id = #{id} AND r.deleted = 0
+    </select>
+
+</mapper>

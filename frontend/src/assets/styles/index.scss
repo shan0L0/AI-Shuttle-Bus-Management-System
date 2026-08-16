@@ -1,0 +1,116 @@
+// 全局样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+// 滚动条美化
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+  
+  &:hover {
+    background: #a8a8a8;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+// Element Plus 覆盖
+.el-card {
+  border-radius: 8px;
+  
+  .el-card__header {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}
+
+.el-table {
+  .el-table__header th {
+    background-color: #fafafa;
+  }
+}
+
+.el-button {
+  border-radius: 6px;
+}
+
+.el-input {
+  .el-input__wrapper {
+    border-radius: 6px;
+  }
+}
+
+.el-select {
+  .el-select__wrapper {
+    border-radius: 6px;
+  }
+}
+
+.el-dialog {
+  border-radius: 12px;
+  
+  .el-dialog__header {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 20px;
+    margin-right: 0;
+  }
+  
+  .el-dialog__body {
+    padding: 20px;
+  }
+  
+  .el-dialog__footer {
+    border-top: 1px solid #f0f0f0;
+    padding: 12px 20px;
+  }
+}
+
+.el-tag {
+  border-radius: 4px;
+}
+
+.el-pagination {
+  --el-pagination-button-bg-color: transparent;
+}
+
+// 通用类
+.page-title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// 过渡动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

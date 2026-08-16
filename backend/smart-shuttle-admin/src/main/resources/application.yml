@@ -1,0 +1,143 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: smart-shuttle
+
+  # 数据库配置
+  datasource:
+    dynamic:
+      primary: master  # 设置默认的数据源名称，未标注 @DS 的方法默认用这个
+      strict: false    # 是否严格模式，false：未匹配到数据源时使用默认数据源，true：抛异常
+      datasource:
+        master:  # 数据源名称，可自定义，如 master、slave1
+          url: jdbc:mysql://localhost:3306/smart_shuttle?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        pg:
+          url: jdbc:postgresql://localhost:5432/vector_db
+          username: vector_admin
+          password: Lindan64yyds@
+          driver-class-name: org.postgresql.Driver
+
+  # Redis配置
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 
+      database: 0
+      timeout: 10s
+      lettuce:
+        pool:
+          max-active: 200
+          max-wait: -1ms
+          max-idle: 10
+          min-idle: 0
+
+# MyBatis Plus配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.smartshuttle.**.entity
+  global-config:
+    db-config:
+      id-type: assign_id
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# JWT配置
+jwt:
+  secret: smart-shuttle-secret-key-2024-must-be-at-least-256-bits-long-for-security
+  expiration: 7200
+  refresh-expiration: 604800
+
+# AI配置 - 支持 deepseek / qwen / wenxin
+ai:
+  # 当前使用的AI提供商
+  provider: deepseek
+  
+  # DeepSeek配置
+  deepseek:
+    api-key: sk-801561889fc2455aaa0e2bdf51d7ead2
+    base-url: https://api.deepseek.com
+    model: deepseek-v4-flash
+    max-tokens: 2000
+    temperature: 0.7
+    timeout: 60
+  
+  # 阿里千问配置
+  qwen:
+    api-key: ${QWEN_API_KEY:sk-your-qwen-api-key}
+    base-url: https://dashscope.aliyuncs.com/api/v1
+    model: qwen-turbo
+    max-tokens: 2000
+    temperature: 0.7
+    timeout: 60
+  
+  # 百度文心配置
+  wenxin:
+    api-key: ${WENXIN_API_KEY:your-wenxin-api-key}
+    secret-key: ${WENXIN_SECRET_KEY:your-wenxin-secret-key}
+    base-url: https://aip.baidubce.com
+    model: ernie-bot-4
+    max-tokens: 2000
+    temperature: 0.7
+    timeout: 60
+
+  # 缓存配置
+  cache:
+    enabled: true
+    ttl: 3600
+  
+  # 限流配置
+  rate-limit:
+    requests-per-minute: 60
+
+embedding-ai:
+  provider: zhipu
+
+  zhipu:
+    api-key: ac09714420de46a09d4890a4c7dc433d.UWKnXmVLWGeQA37h
+    base-url: https://open.bigmodel.cn/api/paas/v4/embeddings
+    model: embedding-3
+    dimensions: 512
+
+knowledge:
+  resource:
+    path: E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\knowledgeResource
+
+# Knife4j API文档配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: '全部接口'
+      paths-to-match: '/**'
+      packages-to-scan: com.smartshuttle
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    swagger-model-name: 实体类列表
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.smartshuttle: DEBUG
+    com.smartshuttle.ai: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

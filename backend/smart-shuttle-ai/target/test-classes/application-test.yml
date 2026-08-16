@@ -1,0 +1,18 @@
+spring:
+
+  # 数据库配置,MP多数据标准格式，所有默认操作都会走master数据源，需要操作vector数据源时，须添加@DS("vector")注解
+  datasource:
+    dynamic:
+      primary: master
+      strict: false
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/smart_shuttle?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+          username: root
+          password: 123456
+        vector:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://localhost:5432/vector_db
+          username: vector_admin
+          password: Lindan64yyds@

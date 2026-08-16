@@ -1,0 +1,11 @@
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\handler\IntentHandler.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\service\NLSelectService.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\config\AiProperties.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\controller\NLSelectController.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\prompt\PromptManager.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\client\WenxinClient.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\handler\NLSelectHandler.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\controller\OptimizeController.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\client\QwenClient.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\client\DeepSeekClient.java
+E:\课程设计_all\JavaEE\smart-shuttle\backend\smart-shuttle-ai\src\main\java\com\smartshuttle\ai\service\RouteOptimizeService.java
